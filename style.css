@@ -494,3 +494,30 @@ body{
         max-height:88vh;
     }
 }
+.moreInvitationButton{
+    position:absolute;
+    bottom:20px;
+
+    padding:12px 22px;
+
+    background:#9b3f5f;
+    color:white;
+
+    border:2px solid #d9b36c;
+    border-radius:25px;
+
+    font-family:'Poppins',sans-serif;
+    font-size:13px;
+    font-weight:600;
+
+    text-decoration:none;
+
+    box-shadow:0 6px 20px rgba(0,0,0,.25);
+
+    transition:.3s;
+}
+
+.moreInvitationButton:hover{
+    transform:scale(1.05);
+    background:#7f304d;
+}
