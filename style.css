@@ -1,0 +1,496 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#FAE3E8,#F7D6DF,#F3C5D2);
+}
+
+/* =========================
+   FALLING FLOWERS
+========================= */
+
+#flowers{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:1;
+}
+
+.flower{
+    position:absolute;
+    width:45px;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    0%{
+        transform:translateY(-100px) rotate(0deg);
+    }
+
+    100%{
+        transform:translateY(120vh) rotate(360deg);
+    }
+}
+
+/* =========================
+   MUSIC BUTTON
+========================= */
+
+#musicBtn{
+    position:fixed;
+    top:20px;
+    right:20px;
+
+    width:55px;
+    height:55px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#9b3f5f;
+    color:white;
+
+    font-size:24px;
+    cursor:pointer;
+
+    box-shadow:0 0 20px rgba(0,0,0,.3);
+
+    z-index:999;
+    transition:.3s;
+}
+
+#musicBtn:hover{
+    transform:scale(1.1);
+}
+
+/* =========================
+   ENVELOPE PAGE
+========================= */
+
+#envelopePage{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:5;
+}
+
+.tapText{
+    font-size:40px;
+
+    font-family:'Great Vibes',cursive;
+
+    color:#7a5600;
+
+    margin-bottom:30px;
+
+    animation:blink 1s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:.3;
+    }
+}
+
+/* =========================
+   ENVELOPE
+========================= */
+
+.envelope{
+    position:relative;
+
+    width:360px;
+    height:240px;
+
+    cursor:pointer;
+
+    transition:1s;
+
+    z-index:6;
+}
+
+/* Envelope Body */
+
+.envelope::before{
+    content:"";
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8d7df,
+            #efaebe,
+            #e7a0b3
+        );
+
+    border-radius:10px;
+
+    box-shadow:
+        0 20px 40px rgba(139,63,89,.25);
+}
+
+/* =========================
+   ENVELOPE FLAP
+========================= */
+
+.flap{
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:0;
+    height:0;
+
+    border-left:180px solid transparent;
+    border-right:180px solid transparent;
+    border-top:120px solid #e5a0b2;
+
+    transform-origin:top;
+
+    transition:1s;
+
+    z-index:8;
+}
+
+/* =========================
+   LETTER
+========================= */
+
+.letter{
+    position:absolute;
+
+    left:20px;
+    bottom:10px;
+
+    width:320px;
+    height:170px;
+
+    background:white;
+
+    border-radius:10px;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.2);
+
+    transition:1s;
+
+    z-index:7;
+}
+
+.letter h2{
+    font-family:'Great Vibes',cursive;
+
+    font-size:40px;
+
+    color:#b8860b;
+}
+
+.letter p{
+    margin-top:10px;
+
+    font-size:22px;
+
+    color:#555;
+}
+
+/* =========================
+   BOW
+========================= */
+
+.bow{
+    position:absolute;
+
+    top:-28px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    z-index:10;
+}
+
+.leftBow,
+.rightBow{
+    position:absolute;
+
+    width:55px;
+    height:40px;
+
+    background:#c70039;
+}
+
+.leftBow{
+    left:-48px;
+
+    border-radius:
+        100% 0 100% 100%;
+
+    transform:rotate(-20deg);
+}
+
+.rightBow{
+    left:0;
+
+    border-radius:
+        0 100% 100% 100%;
+
+    transform:rotate(20deg);
+}
+
+.centerBow{
+    position:absolute;
+
+    left:-8px;
+    top:8px;
+
+    width:16px;
+    height:28px;
+
+    background:#8b0000;
+
+    border-radius:10px;
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+#countdownPage{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    background:
+        rgba(255,255,255,.85);
+
+    z-index:20;
+}
+
+#countdownNumber{
+    font-size:170px;
+
+    font-weight:bold;
+
+    color:#9b3f5f;
+
+    text-shadow:
+        0 0 25px rgba(155,63,95,.6),
+        0 0 45px rgba(155,63,95,.35);
+
+    animation:zoom 1s infinite;
+}
+
+@keyframes zoom{
+
+    0%{
+        transform:scale(.2);
+        opacity:0;
+    }
+
+    50%{
+        transform:scale(1.2);
+        opacity:1;
+    }
+
+    100%{
+        transform:scale(1);
+        opacity:0;
+    }
+}
+
+/* =========================
+   INVITATION CARD PAGE
+========================= */
+
+#cardPage{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    transform:translateY(120%);
+
+    transition:1.5s;
+
+    z-index:15;
+}
+
+/* =========================
+   INVITATION IMAGE
+========================= */
+
+#cardImage{
+    width:500px;
+
+    max-width:92%;
+    max-height:90vh;
+
+    object-fit:contain;
+
+    border-radius:20px;
+
+    box-shadow:
+        0 20px 60px rgba(139,63,89,.35);
+}
+
+/* =========================
+   LOCATION BUTTON
+========================= */
+
+.locationButton{
+    position:absolute;
+
+    top:20px;
+    right:20px;
+
+    z-index:30;
+
+    padding:11px 18px;
+
+    background:#9b3f5f;
+
+    color:white;
+
+    border:2px solid #d9b36c;
+
+    border-radius:25px;
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+    box-shadow:
+        0 6px 20px rgba(0,0,0,.25);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transform:translateY(-10px);
+
+    transition:.5s ease;
+}
+
+.locationButton.show{
+    opacity:1;
+
+    pointer-events:auto;
+
+    transform:translateY(0);
+}
+
+.locationButton:hover{
+    transform:scale(1.05);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .tapText{
+        font-size:32px;
+        margin-bottom:25px;
+    }
+
+    .envelope{
+        width:320px;
+        height:215px;
+    }
+
+    .flap{
+        border-left-width:160px;
+        border-right-width:160px;
+        border-top-width:108px;
+    }
+
+    .letter{
+        left:15px;
+        width:290px;
+        height:155px;
+    }
+
+    .letter h2{
+        font-size:34px;
+    }
+
+    .letter p{
+        font-size:19px;
+    }
+
+    #countdownNumber{
+        font-size:120px;
+    }
+
+    #musicBtn{
+        width:48px;
+        height:48px;
+        font-size:20px;
+        top:15px;
+        right:15px;
+    }
+
+    .locationButton{
+        top:15px;
+        right:15px;
+        padding:9px 14px;
+        font-size:11px;
+    }
+
+    #cardImage{
+        max-width:94%;
+        max-height:88vh;
+    }
+}
